@@ -1,0 +1,17 @@
+.row
+  %h2
+    %div.col-xs-8.col-xs-offset-2
+      = "New Post"
+.row
+  .col-xs-8.col-xs-offset-2.well
+    = form_for @posts, url: admin_posts_path  do |f|
+      .input-field.form-group
+        = f.label :title
+        = f.text_field :title, placeholder: 'Title', class: 'form-control'
+      .input-field.form-group
+        %select{name: 'post[category_id]', class:'form-control'}
+          - Category.all.each do |cat|
+            %option{value: cat.id}= cat.name
+      %textarea{name: 'post[content]'}
+      .actions
+        = f.submit 'Envoyer', :class => 'btn btn-primary pull-right'

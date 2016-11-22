@@ -1,0 +1,24 @@
+.row
+  .col-xs-8.listing
+    %h1
+      =" Liste des posts"
+  .col-xs-1
+  .col-xs-3.listing
+    %h1
+      ="liste categories"
+.row
+  .col-xs-8
+    - @posts.each do |post|
+      .row
+        .col-xs-12.listing
+          %h3
+            = "#{post.title}"
+            %br
+          %p
+            = "#{post.content}"
+  .col-xs-1
+  .col-xs-3
+    - @category.each do |category|
+      .row
+        %h3
+          = "#{category.name}"
